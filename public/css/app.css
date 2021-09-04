@@ -1,0 +1,11 @@
+#btn-write {
+    border-radius: 50rem 0rem 0rem 50rem;
+}
+#btn-draw {
+    border-radius: 0rem 50rem 50rem 0rem;
+}
+body {
+    font-family: 'Sarabun', sans-serif !important;
+    background-image: url('../img/3040791.jpg');
+    background-repeat: repeat;
+}
