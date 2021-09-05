@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\WebController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('home');
+Route::get('/wish', [WebController::class, 'wishPage'])->name('wish');
+Route::post('/postToServer', [PostController::class, 'postToServer'])->name('postToServer');
+Route::get('/success', [WebController::class, 'success'])->name('success');
