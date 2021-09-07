@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\AjaxController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\WebController;
+use App\Models\Data;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +24,6 @@ Route::get('/', function () {
 Route::get('/wish', [WebController::class, 'wishPage'])->name('wish');
 Route::post('/postToServer', [PostController::class, 'postToServer'])->name('postToServer');
 Route::get('/success', [WebController::class, 'success'])->name('success');
+
+// Route::get('/wish/{id}', [AjaxController::class, 'getData']);
+Route::get('/wish/{id}', [WebController::class, 'viewWish']);

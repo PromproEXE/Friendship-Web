@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Data;
 
 class WebController extends Controller
 {
@@ -10,9 +11,16 @@ class WebController extends Controller
         return view('index');
     }
 
-    public function wishPage()
+    public function viewWish($id) {
+        $data = Data::where('id', $id)->first();
+        return view('viewWish', compact('data'));
+    }
+
+    public function wishPage(Request $request)
     {
-        return view('wish');
+        $data = Data::all();
+        $count = count($data);
+        return view('wish', compact('data', 'count'));
     }
 
     public function success() {

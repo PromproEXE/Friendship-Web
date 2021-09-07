@@ -15,7 +15,8 @@ class CreateDataTable extends Migration
     {
         Schema::create('data', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->default('Anonymous');
+            $table->string('name')->default('ไม่ระบุตัวตน');
+            $table->text('preview_content');
             $table->text('content');
             $table->string('send_to');
             $table->timestamps();

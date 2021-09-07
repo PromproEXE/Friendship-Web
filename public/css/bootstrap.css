@@ -229,11 +229,12 @@ sup {
 }
 
 a {
-  color: #0d6efd;
+  color: var(--bs-dark);
   text-decoration: underline;
 }
 a:hover {
-  color: #0a58ca;
+  /* color: #0a58ca; */
+  color: var(--bs-primary);
 }
 
 a:not([href]):not([class]), a:not([href]):not([class]):hover {
@@ -3402,13 +3403,16 @@ textarea.form-control-lg {
   background-color: transparent;
 }
 
-.btn-link {
+/* .btn-link {
   font-weight: 400;
   color: #0d6efd;
   text-decoration: underline;
-}
+} */
 .btn-link:hover {
-  color: #0a58ca;
+  color: var(--bs-primary);
+  /* color: #0d6efd; */
+  cursor: pointer;
+  /* color: #0a58ca; */
 }
 .btn-link:disabled, .btn-link.disabled {
   color: #6c757d;
@@ -4450,7 +4454,12 @@ textarea.form-control-lg {
   background-color: #fff;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.25rem;
+  border-width: 0px 0px 1px 0px;
+  /* border-radius: 0.25rem; */
+}
+.card:hover {
+  background-color: var(--bs-gray-100);
+  cursor: pointer;
 }
 .card > hr {
   margin-right: 0;

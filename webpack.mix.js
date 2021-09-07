@@ -11,4 +11,7 @@ const mix = require('laravel-mix');
  |
  */
 
- mix.sass('resources/sass/animation.scss', 'public/css');
+ //mix.sass('resources/sass/animation.scss', 'public/css');
+ mix.browserSync({
+    proxy: 'http://192.168.0.3:8000'
+});
