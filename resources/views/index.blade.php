@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>แสดงมุทิตาจิต ปี 2564 | กาญจนาภิเษกวิทยาลัย นครปฐม</title>
+    <title>เรียงร้อยถ้อยวลีแสดงมุทิตาจิต เนื่องในโอกาสเกษียณอายุราชการ</title>
     <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
     <script src="{{ URL::asset('js/bootstrap.bundle.js') }}"></script>
@@ -45,7 +45,7 @@
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
-                <!-- <img src="{{ URL::asset('img/kjnlogo copy.png') }}" alt="logo" width="125rem" class="mt-3 ms-0"> -->
+                <!-- <img src="{{ URL::asset('img/kjnlogo_laravel.png') }}" alt="logo" width="125rem" class="mt-3 ms-0 float-start"> -->
             </div>
             <div class="col-12 col-lg-5 bg-white" id="col2">
                 <div class="row">
@@ -57,7 +57,8 @@
                             @csrf
                             <div class="row">
                                 <div class="col-12 mb-xl-3 mb-2">
-                                    <p class="display-4 text-center">แสดงมุทิตาจิตเนื่องในวันเกษียณอายุราชการ</p>
+                                    <p class="display-5 text-center">เรียงร้อยถ้อยวลีแสดงมุทิตาจิต เนื่องในโอกาสเกษียณอายุราชการ</p>
+                                    <p class="text-muted text-center">โรงเรียนกาญจนาภิเษกวิทยาลัย นครปฐม</p>
                                     <!-- <p class="h6 text-muted text-center">เนื่องในวันเกษียณของอาจารย์และบุคลากรในโรงเรียน</p> -->
                                 </div>
                                 <div class="col-12 mb-2 text-center">
@@ -66,14 +67,6 @@
                                     @error('name')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
-                                </div>
-                                <div class="col-12 mb-2">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="incognito" id="incognito">
-                                        <label class="form-check-label" for="incognito">
-                                            ไม่ระบุตัวตน
-                                        </label>
-                                    </div>
                                 </div>
                                 <input type="text" name="preview_content" id="preview">
                                 <script>
@@ -100,30 +93,22 @@
 
                                 <div class="col-12 mb-2">
                                     <!-- <div class="overflow-textarea @error('content') is-invalid @enderror"> -->
-                                    <textarea id="editor" class="@error('content') is-invalid @enderror" name="content" placeholder="เขียนตรงนี้">{{ old('content') }}</textarea>
-                                    <script>
-                                        tinymce.init({
-                                            selector: 'textarea#editor',
-                                            branding: false,
-                                            // plugin: 'paste',
-                                            // toolbar: '',
-                                            // menubar: '',
-                                            height: 180,
-                                            min_height: 180,
-                                            max_height: 180,
-                                            menubar: false,
-                                            plugins: [
-                                                'anchor visualblocks paste'
-                                            ],
-                                            toolbar: '',
-                                        });
-                                    </script>
+                                    <textarea class="form-control @error('content') is-invalid @enderror" id="exampleFormControlTextarea1" rows="4" name="content" placeholder="เขียนข้อความตรงนี้">{{ old('content') }}</textarea>
+
+                                    <!-- <textarea id="editor" class="form-control @error('content') is-invalid @enderror" name="content" placeholder="เขียนตรงนี้">{{ old('content') }}</textarea> -->
                                     <!-- </div> -->
 
-                                    <!-- <textarea class="form-control @error('content') is-invalid @enderror" id="exampleFormControlTextarea1" rows="7" name="content" placeholder="เขียนข้อความตรงนี้">{{ old('content') }}</textarea> -->
                                     @error('content')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
+                                </div>
+                                <div class="col-12 mb-2">
+                                        <label for="" class="ps-0 pe-0 mb-1">แนบรูป (ไม่จำเป็น)</label>
+                                        <input class="form-control" type="file" id="formFile" name="image">
+                                    @error('image')
+                                    <div class="invalid-feedback d-block">{{ $message }}</div>
+                                    @enderror
+
                                 </div>
                                 <div class="col-12 mb-3">
                                     <button type="submit" class="btn btn-warning rounded-pill w-100">ส่งคำอวยพร</button>

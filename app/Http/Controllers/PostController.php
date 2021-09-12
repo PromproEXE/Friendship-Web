@@ -12,6 +12,8 @@ class PostController extends Controller
 
     public function postToServer(Request $request)
     {
+        
+
         $send_to = '';
         if ($request['send_to'] == 'Wanpipa') {
             $send_to = 'อ.วรรณวิภา';
@@ -28,19 +30,27 @@ class PostController extends Controller
         else {
             $send_to = 'ทุกท่านที่เกษียณ';
         }
-        if ($request->has('incognito')) {
+        if ($request->has('image')) {
+            $imageName = time().'.'.$request->image->extension();  
+            $request->image->storeAs('public/images', $imageName);
+
             $request->validate([
-                'incognito' => ['accepted'],
+                'name' => ['required', 'min:5'],
                 'content' => ['required'],
-                'send_to' => ['required']
+                'send_to' => ['required'],
+                'image' => ['mimes:png,jpg,jpeg'],
             ], [
+                'name.required' => 'กรุณาใส่ชื่อจริง',
+                'name.min' => 'กรุณาใส่ชื่อจริงและนามสกุล',
                 'content.required' => 'กรุณาใส่คำมุทิตาจิต',
                 'send_to.required' => 'กรุณาเลือกผู้รับ',
+                'image.mimes' => 'กรุณาเลือกไฟล์ประเภท .jpg หรือ .png'
             ]);
             Data::create([
-                'preview_content' => $request->preview_content,
+                'name' => $request->name,
                 'content' =>  $request->content,
                 'send_to' => $send_to,
+                'img_path' => 'images/'.$imageName,
             ]);
         } else {
             $request->validate([
@@ -55,11 +65,13 @@ class PostController extends Controller
             ]);
             Data::create([
                 'name' => $request->name,
-                'preview_content' => $request->preview_content,
                 'content' => $request->content,
                 'send_to' => $send_to,
             ]);
         }
         return redirect()->route('success');
+    }
+    private function convertToThai($value) {
+        
     }
 }

@@ -11,8 +11,8 @@ class Data extends Model
 
     protected $fillable = [
         'name',
-        'preview_content',
         'content',
         'send_to',
+        'img_path',
     ];
 }

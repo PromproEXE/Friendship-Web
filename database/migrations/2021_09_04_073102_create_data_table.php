@@ -15,10 +15,10 @@ class CreateDataTable extends Migration
     {
         Schema::create('data', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->default('ไม่ระบุตัวตน');
-            $table->text('preview_content');
+            $table->string('name');
             $table->text('content');
             $table->string('send_to');
+            $table->string('img_path')->nullable();
             $table->timestamps();
         });
     }

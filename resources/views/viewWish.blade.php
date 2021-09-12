@@ -14,8 +14,8 @@
     <!-- <link rel="stylesheet" href="{{ URL::asset('css/bootstrap-icons.css') }}"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
 
     <script src="{{ URL::asset('js/bootstrap.bundle.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -39,22 +39,25 @@
                 </form>
             </li>
             <li class="nav-item me-2 d-none d-lg-block">
-            <a href="{{ route('home') }}"><button class="btn btn-primary"><i class="bi bi-pencil-square"></i> เขียนคำมุทิตาจิต</button></a>
+                <a href="{{ route('home') }}"><button class="btn btn-primary"><i class="bi bi-pencil-square"></i> เขียนคำมุทิตาจิต</button></a>
             </li>
         </ul>
 
     </nav>
     <div class="container-fluid bg-white shadow">
-        <p class="display-3 text-center p-5 mb-0 mb-md-1">คำมุทิตาจิต</p>
+        <p class="display-3 text-center p-5 mb-0 mb-md-1">ข้อความมุทิตาจิต</p>
     </div>
     <div class="container-lg rounded my-0 my-md-3 bg-white" style="border: 1px solid; border-color: #adb5bd;">
-            <div class="p-3">
-                    <p class="h1">จาก : {{ $data['name'] }}</p>
-                    <p class="h3">ถึง : {{ $data['send_to'] }}</p>
+        <div class="p-3">
+            <p class="h1">จาก : {{ $data['name'] }}</p>
+            <p class="h3">ถึง : {{ $data['send_to'] }}</p>
+            @if ($data['img_path'] != null)
+            <img src="{{ asset('/storage/'.$data->img_path) }}" class="d-flex me-auto ms-auto w-100" alt="img">
+            @endif
             <div class="overflow-viewWish text-break ps-5 pt-2">
-            {!! $data['content'] !!}
+                {!! $data['content'] !!}
             </div>
-            </div>
+        </div>
     </div>
 
 

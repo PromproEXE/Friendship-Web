@@ -49,6 +49,9 @@ body.body-img {
 textarea {
     resize: none;
 }
+#editor {
+    white-space: pre-wrap;
+}
 .side-img {
     width: 100%;
     height: 100%;

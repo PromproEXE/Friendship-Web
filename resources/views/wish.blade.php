@@ -45,7 +45,7 @@
 
     </nav>
     <div class="container-fluid bg-white shadow">
-        <p class="display-3 text-center p-5 mb-0 mb-lg-1">คำมุทิตาจิต</p>
+        <p class="display-3 text-center p-5 mb-0 mb-lg-1">ข้อความมุทิตาจิต</p>
     </div>
     <div class="container-md rounded my-3 bg-white" style="border: 1px solid; border-color: #adb5bd;">
         <div class="row">
@@ -66,7 +66,7 @@
             @foreach ($data as $data)
             <div class="col-12 px-5 pe-3 py-2 hover-wish" style="border: 1px solid; border-width: 1px 0px 0px 0px; border-color: #adb5bd;">
                 <div class="d-flex">
-                <a href="/wish/{{ $data['id'] }}" class="text-truncate btn-link title h5 text-decoration-none mb-0"><p class="h5 text-truncate title font-weight-bolder">{{ $data['preview_content'] }}&nbsp;</p></a>
+                <a href="/wish/{{ $data['id'] }}" class="text-truncate btn-link title h5 text-decoration-none mb-0"><p class="h5 text-truncate title font-weight-bolder">{{ $data['content'] }}&nbsp;</p></a>
                 <p class="h6 badge bg-secondary fw-light rounded-pill">{{ $data['send_to'] }}</h6>
                 </div>
                 <small class="text-muted">โดย {{ $data['name'] }} เมื่อ {{ $data['created_at']->format('d/m/Y') }}</small>
